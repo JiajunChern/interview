@@ -1,4 +1,4 @@
-package org.interview.algorithm._0146;
+package org.interview.algorithm.leetcode._0146;
 
 import java.util.HashMap;
 import java.util.Map;

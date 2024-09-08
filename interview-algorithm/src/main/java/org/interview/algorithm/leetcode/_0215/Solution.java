@@ -1,4 +1,4 @@
-package org.interview.algorithm._0215;
+package org.interview.algorithm.leetcode._0215;
 
 public class Solution {
 

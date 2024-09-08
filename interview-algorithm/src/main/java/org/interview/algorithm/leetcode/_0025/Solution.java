@@ -1,4 +1,4 @@
-package org.interview.algorithm._0025;
+package org.interview.algorithm.leetcode._0025;
 
 class ListNode {
     int val;

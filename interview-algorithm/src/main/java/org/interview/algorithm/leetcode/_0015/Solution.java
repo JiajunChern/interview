@@ -1,4 +1,4 @@
-package org.interview.algorithm._0015;
+package org.interview.algorithm.leetcode._0015;
 
 import java.util.ArrayList;
 import java.util.Arrays;
