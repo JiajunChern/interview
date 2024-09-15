@@ -12,6 +12,7 @@
         <module>interview-algorithm</module>
         <module>interview-concurrent</module>
         <module>interview-design-pattern</module>
+        <module>interview-springboot</module>
     </modules>
 
     <properties>
