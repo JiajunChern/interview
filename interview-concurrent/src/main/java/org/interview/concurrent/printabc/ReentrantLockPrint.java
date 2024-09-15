@@ -33,7 +33,7 @@ public class ReentrantLockPrint {
                 try {
                     lock.lock();
                     while (value % 3 == 1) {
-                        System.out.println("C");
+                        System.out.println("B");
                         value = 2;
                     }
                 } finally {
