@@ -10,6 +10,7 @@ import org.interview.springboot.message.RocketMQConfig;
 import org.interview.springboot.message.Producer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -17,8 +18,8 @@ public class TestController {
     @Autowired
     private Producer producer;
 
-    @GetMapping(value = "/test")
-    public Object test(String msg) throws InterruptedException, RemotingException, MQClientException, MQBrokerException {
+    @GetMapping(value = "/test/{msg}")
+    public Object test(@PathVariable String msg) throws InterruptedException, RemotingException, MQClientException, MQBrokerException {
         String str = "Hello World,My First RocketMQ Message=" + msg;
         Message message = new Message(RocketMQConfig.TOPIC, "tag1", str.getBytes());
         SendResult sendResult = producer.getProducer().send(message);
