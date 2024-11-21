@@ -1,6 +1,7 @@
 package org.interview.springboot.controller;
 
 
+import com.alibaba.nacos.api.config.annotation.NacosValue;
 import org.apache.rocketmq.client.exception.MQBrokerException;
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.client.producer.SendResult;
@@ -9,9 +10,7 @@ import org.apache.rocketmq.remoting.exception.RemotingException;
 import org.interview.springboot.message.RocketMQConfig;
 import org.interview.springboot.message.Producer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class TestController {
@@ -25,5 +24,14 @@ public class TestController {
         SendResult sendResult = producer.getProducer().send(message);
         System.out.println(sendResult);
         return sendResult.toString();
+    }
+
+
+    @NacosValue(value = "${useLocalCache:false}", autoRefreshed = true)
+    private boolean useLocalCache;
+
+    @GetMapping(value = "/get")
+    public boolean get() {
+        return useLocalCache;
     }
 }
